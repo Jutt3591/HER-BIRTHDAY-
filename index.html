@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Happiest Birthday Meri Ayesha 🥹❤️</title>
   <style>
     body {
       margin: 0;
       padding: 40px 20px;
-      background: linear-gradient(to bottom right, #ffe3e3, #fad0c4);
+      background: linear-gradient(-45deg, #ffe3e3, #fad0c4, #fbc2eb, #a18cd1);
+      background-size: 400% 400%;
+      animation: gradientBG 20s ease infinite;
       font-family: 'Segoe UI', sans-serif;
       color: #4a2c2a;
       line-height: 1.8;
+      overflow-x: hidden;
     }
 
     h1 {
@@ -18,18 +21,19 @@
       font-size: 2.5em;
       color: #c9184a;
       margin-bottom: 30px;
-      animation: fadeIn 2s ease-in-out;
+      animation: pulse 3s ease-in-out infinite;
     }
 
     .message {
       max-width: 800px;
       margin: 0 auto;
-      background: rgba(255, 255, 255, 0.75);
+      background: rgba(255, 255, 255, 0.85);
       padding: 30px;
       border-radius: 15px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.1);
       white-space: pre-wrap;
-      animation: slideUp 1.5s ease-out;
+      z-index: 1;
+      position: relative;
     }
 
     footer {
@@ -37,17 +41,50 @@
       margin-top: 50px;
       color: #777;
       font-size: 14px;
+      z-index: 1;
+      position: relative;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
-    @keyframes slideUp {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
     }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: url('https://i.imgur.com/Zd6rJwG.png') no-repeat center center / cover;
+      animation: float 6s linear infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) scale(0.5);
+        opacity: 0;
+      }
+      50% {
+        opacity: 0.9;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1);
+        opacity: 0;
+      }
+    }
+
+    .heart:nth-child(1) { left: 10%; animation-delay: 0s; }
+    .heart:nth-child(2) { left: 25%; animation-delay: 1s; }
+    .heart:nth-child(3) { left: 40%; animation-delay: 2s; }
+    .heart:nth-child(4) { left: 55%; animation-delay: 3s; }
+    .heart:nth-child(5) { left: 70%; animation-delay: 4s; }
+    .heart:nth-child(6) { left: 85%; animation-delay: 5s; }
 
     ::selection {
       background: #fbb1bd;
@@ -55,9 +92,21 @@
   </style>
 </head>
 <body>
+
+  <!-- Floating Hearts -->
+  <div class="heart"></div>
+  <div class="heart"></div>
+  <div class="heart"></div>
+  <div class="heart"></div>
+  <div class="heart"></div>
+  <div class="heart"></div>
+
+  <!-- Title -->
   <h1>🌸 Happiest Birthday Meri Ayesha 🌸</h1>
+
+  <!-- Message -->
   <div class="message">
-    There’s a girl in this world whose birthday falls on June 3rd, and for the rest of the world, that might just be a date. 🥱
+There’s a girl in this world whose birthday falls on June 3rd, and for the rest of the world, that might just be a date. 🥱
 But for me, it’s the day the most precious, most beautiful soul was born (Laal laal and polli polli Also 🤭) 🥹❤️
 
        🌸HAPPIEST BIRTHDAY MY LOVE🌸
@@ -203,8 +252,10 @@ Happiest Birthday Mera bacha 🥹💋💋💋💋
 
   </div>
 
+  <!-- Footer -->
   <footer>
-    Made with 💖 by Your Rehman who truly loves you 🥹🫶🏼
+    Made with 💖 by Your Rehman who truly loves you 🥹💋
   </footer>
+
 </body>
 </html>
