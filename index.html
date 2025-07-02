@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Happiest Birthday Meri Ayesha 🥹❤️</title>
+  <title>🌸Happiest Birthday Meri Ayesha🌸</title>
   <style>
     body {
       margin: 0;
@@ -21,7 +21,7 @@
       font-size: 2.5em;
       color: #c9184a;
       margin-bottom: 30px;
-      animation: pulse 3s ease-in-out infinite;
+      animation: float 4s ease-in-out infinite;
     }
 
     .message {
@@ -32,17 +32,18 @@
       border-radius: 15px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.1);
       white-space: pre-wrap;
-      z-index: 1;
-      position: relative;
+      font-size: 18px;
     }
 
-    footer {
-      text-align: center;
-      margin-top: 50px;
-      color: #777;
-      font-size: 14px;
-      z-index: 1;
-      position: relative;
+    .emoji {
+      display: inline-block;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+      100% { transform: translateY(0); }
     }
 
     @keyframes gradientBG {
@@ -51,62 +52,22 @@
       100% { background-position: 0% 50%; }
     }
 
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-    }
-
-    .heart {
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background: url('https://i.imgur.com/Zd6rJwG.png') no-repeat center center / cover;
-      animation: float 6s linear infinite;
-      opacity: 0.7;
-    }
-
-    @keyframes float {
-      0% {
-        transform: translateY(100vh) scale(0.5);
-        opacity: 0;
-      }
-      50% {
-        opacity: 0.9;
-      }
-      100% {
-        transform: translateY(-10vh) scale(1);
-        opacity: 0;
-      }
-    }
-
-    .heart:nth-child(1) { left: 10%; animation-delay: 0s; }
-    .heart:nth-child(2) { left: 25%; animation-delay: 1s; }
-    .heart:nth-child(3) { left: 40%; animation-delay: 2s; }
-    .heart:nth-child(4) { left: 55%; animation-delay: 3s; }
-    .heart:nth-child(5) { left: 70%; animation-delay: 4s; }
-    .heart:nth-child(6) { left: 85%; animation-delay: 5s; }
-
-    ::selection {
-      background: #fbb1bd;
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 15px;
+      color: #6e4b4b;
     }
   </style>
 </head>
 <body>
 
-  <!-- Floating Hearts -->
-  <div class="heart"></div>
-  <div class="heart"></div>
-  <div class="heart"></div>
-  <div class="heart"></div>
-  <div class="heart"></div>
-  <div class="heart"></div>
-
-  <!-- Title -->
+  <!-- Floating Heading -->
   <h1>🌸 Happiest Birthday Meri Ayesha 🌸</h1>
 
-  <!-- Message -->
-  <div class="message">
-There’s a girl in this world whose birthday falls on June 3rd, and for the rest of the world, that might just be a date. 🥱
+  <!-- Message Area -->
+  <div class="message" id="message">
+  There’s a girl in this world whose birthday falls on June 3rd, and for the rest of the world, that might just be a date. 🥱
 But for me, it’s the day the most precious, most beautiful soul was born (Laal laal and polli polli Also 🤭) 🥹❤️
 
        🌸HAPPIEST BIRTHDAY MY LOVE🌸
@@ -252,10 +213,21 @@ Happiest Birthday Mera bacha 🥹💋💋💋💋
 
   </div>
 
-  <!-- Footer -->
   <footer>
-    Made with 💖 by Your Rehman who truly loves you 🥹💋
+    Made with 💖 by your Rehman, who truly loves you 🥹🫶🏼
   </footer>
+
+  <script>
+    const message = `
+And your full message with floating emojis will appear here.
+Paste it into the \`message\` variable below to apply the floating effect to all emojis like 🥹❤️🌸.
+    `;
+
+    // Apply animation to all emojis
+    const emojiRegex = /([\u2700-\u27BF\uE000-\uF8FF\uD83C-\uDBFF\uDC00-\uDFFF\u2600-\u26FF\uFE0F])/g;
+    const wrappedMessage = message.replace(emojiRegex, '<span class="emoji">$1</span>');
+    document.getElementById("message").innerHTML = wrappedMessage;
+  </script>
 
 </body>
 </html>
